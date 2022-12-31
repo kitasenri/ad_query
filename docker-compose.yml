@@ -1,0 +1,32 @@
+version: '3'
+services:
+  python3:
+    restart: always
+    build: .
+    container_name: 'dev_advertisement'
+    working_dir: '/root/'
+    tty: true
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      # GCP setting
+      - GOOGLE_APPLICATION_CREDENTIALS=/root/app/functions/resources/credential.json
+      # GoogleAd setting
+      - GOOGLE_ADS_DEVELOPER_TOKEN=*****
+      - GOOGLE_ADS_CLIENT_ID=*****
+      - GOOGLE_ADS_CLIENT_SECRET=*****
+      - GOOGLE_ADS_REFRESH_TOKEN=*****
+      - GOOGLE_ADS_LOGIN_CUSTOMER_ID=*****
+      # Facebook setting
+      - FACEBOOK_APP_ID=*****
+      - FACEBOOK_APP_SECRET=*****
+      # YahooAd setting
+      - YAHOO_CLIEND_ID=*****
+      - YAHOO_CLIENT_SECRET=*****
+      - YAHOO_REFRESH_TOKEN=*****
+      - YAHOO_REDIRECT_URI=*****
+    volumes:
+      - ./app:/root/app
+      - ./cli:/root/cli
+      - ./files/.bash_profile:/root/.bash_profile:ro
+      - ./app/functions/resources/credential.json:/root/app/credential.json:ro

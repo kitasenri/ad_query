@@ -1,0 +1,11 @@
+google-ads
+gcloud
+google-cloud-pubsub
+google-cloud-bigquery==1.20.0
+google-cloud-datastore
+google-api-python-client
+facebook_business
+pyarrow
+pandas
+pandas_gbq
+requests
